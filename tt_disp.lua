@@ -15,7 +15,7 @@ function displayNextTrain()
     term.setCursorPos(0, 1)
     print(currentNextTrain.callingAt)
     term.setCursorPos(0, 2)
-    print(currentNextTrain.platform + "     " + currentNextTrain.length)
+    print(table.concat({currentNextTrain.platform, "     ", currentNextTrain.length}))
     
 end
 
