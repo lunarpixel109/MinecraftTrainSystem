@@ -50,6 +50,8 @@ while isActive do
         elseif message == "exit" then
             isActive = false
             return
+        elseif message == "update" then
+            shell.run("disk/update")
         end
     elseif protocol == "next_train_information" then
         local split = string.gmatch(message, ":")
