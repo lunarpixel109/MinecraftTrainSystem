@@ -1,5 +1,5 @@
 
-rednet.open()
+rednet.open("left")
 rednet.host("server_admin", "lower_tt_server")
 rednet.broadcast("restart", "server_admin")
 
@@ -16,5 +16,5 @@ function updateTimeTable()
 end
 
 while true do
-    
+    parallel.waitForAny(runServerCommand, updateTimeTable)
 end
