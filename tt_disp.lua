@@ -28,6 +28,10 @@ end
 
 currentNextTrain = {nextTrainTime = 0, title = "No Train Data", callingAt = "No Information. PLease check timetable", length = "N/A Coaches", platform = 0}
 
+local monitor = peripheral.wrap("bottom")
+
+monitor.setTextScale(0.5)
+
 term.setBackgroundColor(colors.lightBlue)
 rednet.open("top")
 
