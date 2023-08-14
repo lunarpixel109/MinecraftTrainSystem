@@ -4,16 +4,12 @@ rednet.host("server_admin", "lower_tt_server")
 rednet.broadcast("restart", "server_admin")
 
 function runServerCommand()
-    print("SERVER ADMIN: ")
-    local cmd = read()
-    if cmd == "stop" then
-        rednet.broadcast("shutdown", "server_admin")
-    end
+    -- TODO: Create control HTTP Server
 end
 
 function updateTimeTable() 
     -- TODO: Create timetable HTTP server in real world
-    
+
 end
 
 while true do
