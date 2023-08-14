@@ -19,6 +19,7 @@ end
 function announce(message)
     term.setBackgroundColor(colors.red)
     term.setTextColor(colors.white)
+    term.clear()
     print(message)
 end
 
@@ -32,11 +33,22 @@ monitor.setTextScale(0.5)
 term.setBackgroundColor(colors.lightBlue)
 rednet.open("top")
 
-displayNextTrain()
+local controlHost = rednet.lookup("system_admin")
 
-while true do
-    local _, message, protocol = rednet.receive()
-    if protocol == "next_train_information" then
+displayNextTrain()
+isActive = true;
+while isActive do
+    local senderID, message, protocol = rednet.receive()
+    if senderID == controlHost and protocol == "system_admin" then
+        if message == "shutdown" then
+            os.shutdown()
+        elseif message == "restart" then
+            os.reboot()
+        elseif message == "exit" then
+            isActive = false
+            return
+        end
+    elseif protocol == "next_train_information" then
         local split = string.gmatch(message, ":")
         currentNextTrain.nextTrainTime = split[1]
         currentNextTrain.title = split[2]
@@ -48,3 +60,6 @@ while true do
         announce(message)
     end
 end
+
+rednet.close()
+announce("Offline")
