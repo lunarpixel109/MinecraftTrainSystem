@@ -7,7 +7,10 @@ function displayNextTrain()
 
     term.setCursorBlink(false)
     
-
+    print(textutils.formatTime(os.time(), false))
+    print(lastNextTrain.title)
+    print(lastNextTrain.callingAt)
+    print(table.concat({lastNextTrain.platform, "     ", lastNextTrain.length}))
 
     print(textutils.formatTime(os.time(), false))
     print(currentNextTrain.title)
@@ -23,7 +26,7 @@ function announce(message)
     print(message)
 end
 
-
+lastNextTrain = {nextTrainTime = 0, title = "No Train Data", callingAt = "No Information. PLease check timetable", length = "NaN Coaches", platform = "NaN"}
 currentNextTrain = {nextTrainTime = 0, title = "No Train Data", callingAt = "No Information. PLease check timetable", length = "NaN Coaches", platform = "NaN"}
 
 local monitor = peripheral.wrap("bottom")
