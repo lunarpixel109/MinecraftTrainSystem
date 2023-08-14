@@ -8,13 +8,10 @@ function displayNextTrain()
     term.setCursorBlink(false)
     
 
-    term.setCursorPos(0, 0)
+
     print(textutils.formatTime(os.time(), false))
-    term.setCursorPos(12, 0)
     print(currentNextTrain.title)
-    term.setCursorPos(0, 1)
     print(currentNextTrain.callingAt)
-    term.setCursorPos(0, 2)
     print(table.concat({currentNextTrain.platform, "     ", currentNextTrain.length}))
     
 end
