@@ -23,7 +23,7 @@ function announce(message)
 end
 
 
-currentNextTrain = {nextTrainTime = 0, title = "No Train Data", callingAt = "No Information. PLease check timetable", length = "N/A Coaches", platform = 0}
+currentNextTrain = {nextTrainTime = 0, title = "No Train Data", callingAt = "No Information. PLease check timetable", length = "NaN Coaches", platform = "NaN"}
 
 local monitor = peripheral.wrap("bottom")
 
