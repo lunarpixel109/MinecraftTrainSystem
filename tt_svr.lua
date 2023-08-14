@@ -13,6 +13,7 @@ end
 
 function updateTimeTable() 
     -- TODO: Create timetable HTTP server in real world
+    
 end
 
 while true do
